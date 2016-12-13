@@ -21,3 +21,15 @@ def multiply *a
   end
   m
 end
+
+def power a, b
+  a ** b
+end
+
+def factorial num
+  sum = 1
+  for i in 1..num do
+    sum *= i
+  end
+  sum
+end
