@@ -5,13 +5,17 @@
 #
 # # Pig Latin
 #
-# Pig Latin is a made-up children's language that's intended to be confusing. It obeys a few simple rules (below) but when it's spoken quickly it's really difficult for non-children (and non-native speakers) to understand.
+# Pig Latin is a made-up children's language that's intended to be confusing. It
+# obeys a few simple rules (below) but when it's spoken quickly it's really
+# difficult for non-children (and non-native speakers) to understand.
 #
 # Rule 1: If a word begins with a vowel sound, add an "ay" sound to the end of the word.
 #
-# Rule 2: If a word begins with a consonant sound, move it to the end of the word, and then add an "ay" sound to the end of the word.
+# Rule 2: If a word begins with a consonant sound, move it to the end of the
+# word, and then add an "ay" sound to the end of the word.
 #
-# (There are a few more rules for edge cases, and there are regional variants too, but that should be enough to understand the tests.)
+# (There are a few more rules for edge cases, and there are regional variants
+# too, but that should be enough to understand the tests.)
 #
 # See <http://en.wikipedia.org/wiki/Pig_latin> for more details.
 #
@@ -65,8 +69,18 @@ describe "#translate" do
     expect(s).to eq("ethay ickquay ownbray oxfay")
   end
 
-  # Test-driving bonus:
-  # * write a test asserting that capitalized words are still capitalized (but with a different initial capital letter, of course)
-  # * retain the punctuation from the original phrase
+  it "capitalizes words that initially were capitalized" do
+    s = translate("Gillian Welch is the best American songwriter")
+    expect(s).to eq("Illiangay Elchway isay ethay estbay Ericanamay ongwritersay")
+  end
 
+  it "retains the punctuation from the original phrase" do
+    s = translate("Hello, world!")
+    expect(s).to eq("Ellohay, orldway!")
+  end
+
+    it "retains the punctuation from the original phrase with a vowel" do
+      s = translate("apple, world!")
+      expect(s).to eq("appleay, orldway!")
+    end
 end
